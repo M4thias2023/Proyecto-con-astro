@@ -1,0 +1,33 @@
+---
+const response = await fetch('https://jsonplaceholder.typicode.com/albums') //extraer informacion de una api
+const post = await response.json() //pasamos la información a json
+---
+
+<h1>Mis Albums</h1>
+{
+    post.map((post) => (
+        <div>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo del album</th>
+                </tr>
+                <tr>
+                    <td>{post.userId}</td>
+                    <td>{post.title}</td>
+                </tr>
+            </table>
+            </div>
+    ))
+}
+
+<style>
+    table, th, td {
+        border: 1px solid;
+        padding: 20px;
+    }
+
+    table{
+        margin-bottom: 30px;
+    }
+</style>
